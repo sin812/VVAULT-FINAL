@@ -1,0 +1,46 @@
+ {% extends "base.html" %}
+{% load static %}
+{% block title %}Hub{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static "hub/index.css" %}">
+{% endblock %}
+
+{% block content %}
+    <header id="mainnav"> <h1><a href="">VinylVault</a></h1> 
+    <nav>
+            <a href="">Hub</a>
+    </nav>
+    </header>
+
+    <section id="welcome">
+        <header>
+            <img src="" alt="VinylVault Logo" />
+            <h2>Welcome to VinylVault</h2>  
+        </header>
+
+        <p>Here you can find all the information you need about your vinyl collection. You can add, edit and delete records, and search for records by artist, album or genre.</p>
+    </section> 
+    <section>
+        <h2>The Collection</h2>
+
+        <ul>
+            <li>
+                <article class="post">
+                    <a href=""><img src="" alt="Album Cover" />
+                    div class="content">
+                        <h3>Album Title</h3>
+                        <p>Artist</p>
+                        <p>Genre</p>
+                    </a>
+            </li>
+        </ul>
+
+    </section>
+
+    <section> 
+        <h2> About Us </h2>
+        <p> VinylVault is a project created by the students of the Code Institute. </p>
+    </section>
+
+{% endblock %}

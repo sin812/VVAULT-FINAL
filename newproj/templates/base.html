@@ -1,0 +1,24 @@
+<!-- GLOBAL HTML TO RUSE-->
+ {% load static %} <!-- to load static files -->    
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>{% block title %}
+        
+        {% endblock %}</title>  <!-- used block because  -->
+
+        <link rel="stylesheet" href="{% static "app.css" %}">
+       
+        {% block stylesheets %}
+
+        {% endblock %}
+</head>
+<body>
+    {% block content %}
+    
+    {% endblock %}
+</body>
+</html>
