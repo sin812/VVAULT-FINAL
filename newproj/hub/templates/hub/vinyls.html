@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title%}
+    VinylVault
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static "hub/index.css" %}">
+    <link rel="stylesheet" href="{% static "hub/vinyl.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section id="vinyls">
+        <h2>The Collection</h2>
+        <ul>
+            {%for vinyl in allvinyls%}
+                {% include "hub/includes/vinyl.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

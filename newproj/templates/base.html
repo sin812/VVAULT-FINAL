@@ -17,6 +17,12 @@
         {% endblock %}
 </head>
 <body>
+    <header id="mainnav"> 
+        <h1><a href="{% url "index" %}">VinylVault</a></h1> 
+        <nav>
+                <a href="{% url "items"%}">Hub</a>
+        </nav>
+        </header> <!-- alternative to include header in all pages -->
     {% block content %}
     
     {% endblock %}

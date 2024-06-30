@@ -1,40 +1,33 @@
- {% extends "base.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% block title %}Hub{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{% static "hub/index.css" %}">
+    <link rel="stylesheet" href="{% static "hub/vinyl.css" %}">
 {% endblock %}
 
+
+
 {% block content %}
-    <header id="mainnav"> <h1><a href="">VinylVault</a></h1> 
-    <nav>
-            <a href="">Hub</a>
-    </nav>
-    </header>
+   
 
     <section id="welcome">
         <header>
-            <img src="" alt="VinylVault Logo" />
+            <img src="{% static "hub/pics/logo.jpg"%}" alt="VinylVault Logo" />
             <h2>Welcome to VinylVault</h2>  
         </header>
 
         <p>Here you can find all the information you need about your vinyl collection. You can add, edit and delete records, and search for records by artist, album or genre.</p>
     </section> 
-    <section>
-        <h2>The Collection</h2>
-
-        <ul>
-            <li>
-                <article class="post">
-                    <a href=""><img src="" alt="Album Cover" />
-                    div class="content">
-                        <h3>Album Title</h3>
-                        <p>Artist</p>
-                        <p>Genre</p>
-                    </a>
-            </li>
-        </ul>
+    <section id="latest additions">
+        <h2>New vinyls</h2>
+            <ul> 
+                {% for vinyl in vinyls%}
+                    {% include "hub/includes/vinyl.html" %}
+                {% endfor %}
+            </ul>
+      
 
     </section>
 
