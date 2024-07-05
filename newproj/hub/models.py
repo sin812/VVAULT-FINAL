@@ -27,7 +27,7 @@ class Vinyl(models.Model):
     slug= models.SlugField(unique=True,db_index=True)
     artist = models.ForeignKey(Artist, on_delete=models.SET_NULL,null=True, related_name='vinyls') #the null=True is used for the author field to be optional, null is not true by default
     tags= models.ManyToManyField(tag)
-    image = models.CharField(max_length=100, null=True, blank=True)
+    image = models.ImageField(upload_to="images", null=True)
 
     def __str__(self):
         return self.title

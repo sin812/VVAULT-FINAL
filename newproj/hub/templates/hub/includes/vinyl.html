@@ -1,9 +1,8 @@
-{% load static %}
 
 <li>
     <article class="vinyl">
         <a href="{% url 'item-details' vinyl.slug %}">
-            <img src="{% static "hub/pics/"|add:vinyl.image %}" alt="Vinyl record" />
+            <img src="{{ vinyl.image.url}}" alt="Vinyl record" />
         </a>
         
         <h3>{{ vinyl.title}}</h3>\
