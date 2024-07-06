@@ -1,5 +1,4 @@
-<!-- GLOBAL HTML TO RUSE-->
- {% load static %} <!-- to load static files -->    
+{% load static %} <!-- to load static files -->    
 
 <!DOCTYPE html>
 <html>
@@ -17,14 +16,24 @@
         {% endblock %}
 </head>
 <body>
-    <header id="mainnav"> 
-        <h1><a href="{% url "index" %}">VinylVault</a></h1> 
+    <header class="mainnav"> 
+        
         <nav>
-                <a href="{% url "items"%}">Hub</a>
+            <a href="{% url "index" %}"><img src="{% static "logo.jpg" %}" alt="Logo" class="logo" style="width: 5rem; height: 5rem;"></a>
+            <a href="{% url "items"%}">Hub</a>
         </nav>
-        </header> <!-- alternative to include header in all pages -->
+
+    </header>
     {% block content %}
     
     {% endblock %}
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 VinylVault. All rights reserved.</p>
+            <nav>
+                <a href="{% url 'items' %}">Hub</a>
+            </nav>
+        </div>
+    </footer>
 </body>
 </html>

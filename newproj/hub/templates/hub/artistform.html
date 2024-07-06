@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Add Artist</title>
+    <link rel="stylesheet" href="{% static 'app.css' %}">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+    <header class="mainnav">
+        <nav>
+            <a href="{% url 'index' %}"><img src="{% static 'logo.jpg' %}" alt="Logo" class="logo" style="width: 5rem; height: 5rem;"></a>
+            <a href="{% url 'items' %}">Hub</a>
+        </nav>
+    </header>
+    <section id="add-artist">
+        <h2>Add Artist</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render form fields as <p> elements -->
+            <button type="submit">Save Artist</button>
+        </form>
+    </section>
+    
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 VinylVault. All rights reserved.</p>
+            <nav>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
