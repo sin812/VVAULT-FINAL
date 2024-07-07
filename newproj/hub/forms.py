@@ -1,8 +1,6 @@
 from django import forms
 from .models import Vinyl, Artist
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import Group
-from .models import CustomUser
+
 
 
 

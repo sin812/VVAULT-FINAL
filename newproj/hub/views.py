@@ -15,6 +15,9 @@ from .forms import VinylForm, ArtistForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth import login
+from register.decorators import allowed_users
+
+
 
 
 
@@ -65,7 +68,8 @@ class SingleVinyl(DetailView):
         return context
     
 
-@login_required
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['PrivUser'])
 def add_vinyl(request):
     if request.method == 'POST':
         form = VinylForm(request.POST, request.FILES)
@@ -77,7 +81,8 @@ def add_vinyl(request):
     
     return render(request, 'hub/form.html', {'form': form})
 
-@login_required
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['PrivUser'])
 def add_artist(request):
     if request.method == 'POST':
         form = ArtistForm(request.POST)

@@ -21,6 +21,12 @@
         <nav>
             <a href="{% url "index" %}"><img src="{% static "logo.jpg" %}" alt="Logo" class="logo" style="width: 5rem; height: 5rem;"></a>
             <a href="{% url "items"%}">Hub</a>
+            <span> Hello, {{request.user}} </span>
+            {% if request.user.is_staff %}
+                <a href="{% url 'add_vinyl' %}">ADD ITEM</a>
+                <a href="{% url 'add_artist' %}">ADD ARTIST</a>
+            {% endif %}
+            <span><a href="{% url 'logout' %}">Logout</a></span>
         </nav>
 
     </header>

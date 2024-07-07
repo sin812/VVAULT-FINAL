@@ -1,29 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, Group as AuthGroup, Permission as AuthPermission
-from django.core.validators import RegexValidator
+from django.contrib.auth.models import AbstractUser
 
-class CustomUser(AbstractUser):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
-    phonenumber = models.CharField(max_length=10, validators=[RegexValidator(r'^[0-9]{10}$', message='Phone number must be 10 digits.')])
-    groups = models.ManyToManyField(
-        AuthGroup,
-        related_name='auth_users',  # Unique related_name for auth.User groups
-        blank=True,
-        verbose_name='groups',
-        help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
-    )
-    user_permissions = models.ManyToManyField(
-        AuthPermission,
-        related_name='auth_users',  # Unique related_name for auth.User user_permissions
-        blank=True,
-        verbose_name='user permissions',
-        help_text='Specific permissions for this user.',
-    )
 
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+def __str__(self):
+    return f"{self.first_name} {self.last_name}"
 
 
 class Artist(models.Model):
