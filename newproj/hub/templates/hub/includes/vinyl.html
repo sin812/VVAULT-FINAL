@@ -1,13 +1,20 @@
-<li>
-    <article class="vinyl" data-dominant-color="{{ vinyl.dominantcolor }}">
-        <a href="{% url 'item-details' vinyl.slug %}">
-            <img src="{{ vinyl.image.url}}" alt="Vinyl record" />
-        </a>
-        
-        <h3>{{ vinyl.title }}</h3>
-        <h2>{{ vinyl.artist }}</h2>
-        <p>{{ vinyl.price }}</p>
-        <p>{{ vinyl.genre }}</p>
-        <p>{{ vinyl.year }}</p>
-    </article>
-</li>
+<article class="vinyl" data-dominant-color="{{ vinyl.dominantcolor }}">
+    <a href="{% url 'item-details' vinyl.slug %}" class="vinyl-link">
+        <img src="{{ vinyl.image.url }}" alt="Vinyl record" class="vinyl-cover"/>
+    </a>
+    <div class="summary-content">
+        <div class="summary-details">
+            <h3 class="vinyl-title">Title: {{ vinyl.title }}</h3>
+            <h2 class="vinyl-artist">Artist: {{ vinyl.artist }}</h2>
+            <div class="tags">
+                <p>Tags:</p>
+                {% for tag in vinyl.tags.all %}
+                    <span class="tag">{{ tag.caption }}</span>
+                {% endfor %}
+            </div>
+            <p class="vinyl-price">Price: {{ vinyl.price }}$</p>
+            <p class="vinyl-genre">Genre: {{ vinyl.genre }}</p>
+            <p class="vinyl-year">Year: {{ vinyl.year }}</p>
+        </div>
+    </div>
+</article>

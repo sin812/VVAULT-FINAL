@@ -26,49 +26,92 @@ ul {
   width: 15rem; /* Fixed width for each vinyl */
   flex-shrink: 0; /* Prevent items from shrinking */
   flex-grow: 0; /* Prevent items from growing */
-  transition: background-color 0.3s ease;
 }
 
 /* Image styling within each vinyl */
-.vinyl img {
+.vinyl-cover {
   width: 100%; /* Full width image */
   height: auto; /* Maintain aspect ratio */
   display: block; /* Make image a block element */
 }
 
 /* Link styling for each vinyl */
-.vinyl a {
+.vinyl-link {
   display: block; /* Make link a block element */
   color: #000; /* Black font color */
   text-decoration: none; /* Remove underline */
-  padding: 1rem; /* Padding for clickable area */
 }
 
-/* Hover effect on vinyl */
 /* Hover effect on vinyl */
 .vinyl:hover {
-  background-color: var(--dominant-color); /* Use CSS variable with fallback color */
-  
+  background-color: var(--dominant-color, #ff00ff); /* Use CSS variable with fallback color */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-
 /* Content area within each vinyl */
-.vinyl-content {
+.summary-content {
   padding: 1rem; /* Padding inside content area */
 }
 
+/* Add margin to the left for details */
+.summary-details {
+  margin-left: 1rem; /* Add a little margin to the left */
+}
+
 /* Title styling within each vinyl */
-.vinyl-content h3 {
+.vinyl-title {
   font-size: 1.2rem; /* Larger font size */
   color: #333; /* Darker font color */
   margin: 0.5rem 0; /* Margin around the title */
+  text-align: left; /* Left align text */
+}
+
+/* Artist styling within each vinyl */
+.vinyl-artist {
+  font-size: 1rem; /* Font size */
+  color: #666; /* Medium dark font color */
+  margin: 0; /* Remove margin */
+  text-align: left; /* Left align text */
+}
+
+/* Tags styling */
+.tags {
+  display: block; /* Display tags block to make them stack under the label */
+  margin: 0.5rem 0; /* Margin around tags */
+  text-align: left; /* Left align text */
+}
+
+.tag {
+  display: inline-block; /* Display tags in a line */
+  background-color: #ff00ff; /* Bright pink background color */
+  color: #ffffff; /* White text color */
+  font-size: 0.9rem; /* Font size */
+  padding: 0.4rem 0.7rem; /* Padding for the tag */
+  margin: 0.2rem 0; /* Margin around each tag */
+  border-radius: 4px; /* Rounded corners */
   text-align: center; /* Center align text */
 }
 
-/* Description styling within each vinyl */
-.vinyl-content p {
+/* Price styling within each vinyl */
+.vinyl-price {
+  font-size: 1rem; /* Font size */
+  color: #333; /* Dark font color */
+  margin: 0.5rem 0; /* Margin around the price */
+  text-align: left; /* Left align text */
+}
+
+/* Genre styling within each vinyl */
+.vinyl-genre {
   font-size: 0.9rem; /* Smaller font size */
   color: #666; /* Medium dark font color */
   margin: 0; /* Remove margin */
-  text-align: center; /* Center align text */
+  text-align: left; /* Left align text */
+}
+
+/* Year styling within each vinyl */
+.vinyl-year {
+  font-size: 0.9rem; /* Smaller font size */
+  color: #666; /* Medium dark font color */
+  margin: 0; /* Remove margin */
+  text-align: left; /* Left align text */
 }
