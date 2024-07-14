@@ -3,37 +3,150 @@
 {% block title %}Hub{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{% static "hub/index.css" %}">
-    <link rel="stylesheet" href="{% static "hub/vinyl.css" %}">
+    <link rel="stylesheet" href="{% static 'hub/index.css' %}">
+    <link rel="stylesheet" href="{% static 'hub/vinyl.css' %}">
+    <style>
+        /* Contact Section */
+        #contact {
+            background-color: #1a1a1a; /* Very dark background */
+            padding: 4rem 12%;
+            text-align: center;
+            color: #b3b3b3; /* Slightly darker text color */
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #74FF74; /* Highlight color */
+        }
+
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1a1a1a; /* Dark form background */
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #contact .form-group {
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        #contact label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: #b3b3b3; /* Slightly darker text color */
+        }
+
+        #contact input,
+        #contact textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #333; /* Darker border */
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Arial', sans-serif;
+            background-color: #262626; /* Darker input background */
+            color: #b3b3b3; /* Slightly darker text color */
+        }
+
+        #contact input:focus,
+        #contact textarea:focus {
+            outline: none;
+            border-color: #74FF74;
+            background-color: #333; /* Darker focus background */
+        }
+
+        #contact textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        #contact button {
+            background-color: #74FF74; /* Highlight button color */
+            color: #1a1a1a;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        #contact button:hover {
+            background-color: #4B0082;
+            color: #fff;
+            transform: scale(1.05);
+        }
+    </style>
 {% endblock %}
 
-
-
 {% block content %}
-   
-
+    <!-- Welcome Section -->
     <section id="welcome">
         <header>
-            <h2>Welcome to VinylVault</h2>  
+            <h2>Welcome to VinylVault</h2>    
+            {% if request.user.is_authenticated %}
+            <section class="greeting-section">
+                <p><span class="username">{{ request.user }}</span></p>
+            </section>
+            {% endif %}
         </header>
-        
-        <p>Here you can find lots of vinyls.</p>
-    </section> 
-   
-    <section id="latest additions">
-        <h2>New vinyls</h2>
-            <ul> 
-                {% for vinyl in vinyls%}
-                    {% include "hub/includes/vinyl.html" %}
-                {% endfor %}
-            </ul>
-      
-
+        <p>Discover a treasure trove of classic and contemporary vinyl records. Whether you're a seasoned collector or new to the world of vinyl, VinylVault is your ultimate destination.</p>
     </section>
 
-    <section> 
-        <h2> About Us </h2>
-        <p> VinylVault is a project created by the students of the Code Institute. </p>
+    <!-- Latest Additions Section -->
+    <section id="latest-additions">
+        <h2>New Vinyls</h2>
+        <ul>
+            {% for vinyl in vinyls %}
+                {% include "hub/includes/vinyl.html" %}
+            {% endfor %}
+        </ul>
     </section>
 
+    <!-- About Us Section -->
+    <section id="about-us" class="content-container">
+        <h2>About Us</h2>
+        <p>VinylVault is a project created by a team of music enthusiasts dedicated to preserving the beauty and legacy of vinyl records. Our mission is to provide a comprehensive platform for vinyl lovers to discover, buy, and discuss their favorite records.</p>
+        <p>Founded in 2021, VinylVault has quickly become a trusted name in the vinyl community. We believe that vinyl records offer an unparalleled listening experience, and we are committed to helping collectors of all levels find the records they love.</p>
+        <p>Our team consists of passionate individuals who are not only experts in music but also avid collectors. We understand the thrill of finding that rare pressing or discovering a new favorite artist on vinyl. Our goal is to share that excitement with you.</p>
+    </section>
+
+    <!-- Contact Section (Only Visible for Authenticated Users) -->
+    {% if request.user.is_authenticated %}
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out to us. We're here to help!</p>
+        <form action="{% url 'contact' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    {% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'hub/colorchange.js' %}" defer></script>
+<script src="{% static 'hub/main.js' %}" defer></script>
 {% endblock %}

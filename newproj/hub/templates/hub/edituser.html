@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    User Profile
+    Edit User Details
 {% endblock %}
 
 {% block stylesheets %}
@@ -12,18 +12,12 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1>User Profile</h1>
-    <div class="card mb-3">
-        <div class="card-body">
-            <p><strong>Username:</strong> {{ user.username }}</p>
-            <p><strong>First Name:</strong> {{ user.first_name }}</p>
-            <p><strong>Last Name:</strong> {{ user.last_name }}</p>
-            <p><strong>Email:</strong> {{ user.email }}</p>
-        </div>
-    </div>
-
-    <h2>Actions</h2>
-    <a href="{% url 'change_username' %}" class="btn btn-primary">Change Username</a>
+    <h1>Edit User Details</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
 
     {% if messages %}
         <div class="mt-3">

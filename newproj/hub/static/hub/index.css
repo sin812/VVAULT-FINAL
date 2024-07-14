@@ -1,77 +1,307 @@
-#welcome {
-  background: linear-gradient(to right top, #0000ff, #ff4800);
-  /* Change the background gradient colors */
-  padding: 6rem 12%;
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;  /* Dark background */
+  line-height: 1.6;
+  color: #000000;  /* Light text color */
 }
 
-#welcome img {
-  /* Change the border color */
-  border: 5px solid black;
-  /* Change the background color */
-  background-color: #ffff00;
-  /* Change the box shadow color */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+a {
+  text-decoration: none;
+  color: #74FF74;  /* Bright link color */
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #000000;  /* Light heading color */
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.mainnav {
+  background-color: #4B0082;  /* Dark header background */
+  padding: 20px 0;
+}
+
+.mainnav nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.mainnav button {
+  background-color: #9370DB;  /* Button color */
+  color: #74FF74;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.mainnav button:hover {
+  background-color: #8B008B;  /* Hover button color */
+  transform: scale(1.05);
+}
+
+/* Welcome Section */
+#welcome {
+  background: linear-gradient(to right top, #4B0082, #8B008B);  /* Gradient background */
+  color: #74FF74;  /* White text color */
+  text-align: center;
+  padding: 6rem 12%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 12px;  /* Rounded edges */
 }
 
 #welcome h2 {
-  /* Change the font color */
-  color: #000000;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-#welcome p {
-  /* Change the font color */
-  color: #000000;
+/* Latest Additions Section */
+#latest-additions {
+  background-color: #2a2a2a;  /* Dark background */
+  padding: 4rem 12%;
 }
 
-#latest-posts {
-  /* Change the background color */
-  background-color: #ffffff;
-  /* Change the box shadow color */
-  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.8);
+#latest-additions h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #000000;  /* Light heading color */
 }
 
-#latest-posts h2 {
-  /* Change the text color */
-  color: #ff00ff;
+#latest-additions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
-#latest-posts li {
-  /* Change the flex property */
-  flex: 2;
+.vinyl {
+  background-color: #333;  /* Dark card background */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 100%;
+  max-width: 250px;
 }
 
-#about {
-  /* Change the background color */
-  background-color: #ff00ff;
+.vinyl img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-#about h2 {
-  /* Change the font color */
-  color: #0000ff;
+.vinyl a {
+  display: block;
+  color: #CDA2D8;  /* Light text color */
+  text-decoration: none;
+  padding: 1rem;
 }
 
-#about p {
-  /* Change the font color */
-  color: #ffffff;
+.vinyl a:hover {
+  transform: scale(1.05);
 }
 
-#header {
-  /* Change the background color */
-  background-color: #000000;
+/* About Us Section */
+#about-us {
+  background-color: #4B0082;  /* Dark background */
+  color: #74FF74;  /* Highlight text color */
+  text-align: center;
+  padding: 4rem 12%;
+  border-radius: 12px;  /* Rounded edges */
+  max-width: 600px;  /* Limit the maximum width */
+  margin: 0 auto;  /* Center the section horizontally */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);  /* Add some shadow for depth */
 }
 
-.header .logo {
-  /* Add the desired width and height for the logo */
-  width: 2rem;
-  height: 2rem;
-}
-#header .menu a {
-  /* Change the font color */
-  color: #ffffff;
+#about-us h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-#header .menu a:hover {
-  /* Change the hover color */
-  color: #ff00ff;
+#about-us p {
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
+
+/* Footer */
+.main-footer {
+  background-color: #4B0082;  /* Dark footer background */
+  color: 74FF74;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content p {
+  margin: 10px 0;
+  color: #CDA2D8;  /* Light text color */
+}
+
+.footer-content button {
+  background-color: #9370DB;  /* Button color */
+  color: #74FF74;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.footer-content button:hover {
+  background-color: #8B008B;  /* Hover button color */
+  transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  /* Add your responsive adjustments here */
+}
+
+* Search Form Styles */
+.search-form {
+    margin: 2rem auto; /* Centers the form and adds vertical spacing */
+    display: flex;
+    justify-content: center; /* Aligns form contents in the center */
+    gap: 10px; /* Spacing between input and button */
+}
+
+.search-input {
+    width: 40%; /* Responsive width */
+    padding: 10px;
+    border-radius: 5px; /* Rounded edges */
+    border: none; /* Removes the default border */
+    background-color: #333; /* Dark background for the input */
+    color: #74FF74; /* Text color */
+    font-size: 1rem;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #9370DB; /* Button color */
+    color: #74FF74; /* Text color */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-button:hover {
+    background-color: #8B008B; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+@media (max-width: 768px) {
+    .search-input {
+        width: 60%; /* Larger width on smaller screens */
+    }
+}
+
+/* Filter Section Styles */
+.filter-section {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  gap: 1rem; /* Add gap between elements */
+}
+
+.search-form,
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem;
+  flex: 1; /* Allow the forms to grow */
+}
+
+.search-input,
+.filter-select {
+  width: 100%; /* Make inputs take full width */
+  max-width: 300px; /* Limit maximum width */
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus,
+.filter-select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.search-button,
+.filter-button {
+  width: 100%; /* Make buttons take full width */
+  max-width: 300px; /* Limit maximum width */
+  padding: 0.5rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover,
+.filter-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .filter-section {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .search-form,
+  .filter-form {
+      width: 100%;
+      max-width: 400px;
+  }
+}

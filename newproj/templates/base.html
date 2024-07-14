@@ -1,45 +1,74 @@
-{% load static %} <!-- to load static files -->    
+{% load static %} <!-- Load static files -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>{% block title %}
-        
-        {% endblock %}</title>  <!-- used block because  -->
+    <title>{% block title %}{% endblock %}</title>  <!-- Title block -->
 
-        <link rel="stylesheet" href="{% static "app.css" %}">
-       
-        {% block stylesheets %}
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{% static 'app.css' %}">
 
-        {% endblock %}
+    <!-- Additional stylesheets block -->
+    {% block stylesheets %}{% endblock %}
 </head>
 <body>
-    <header class="mainnav"> 
-        
+    <!-- Header Section -->
+    <header class="mainnav">
         <nav>
-            <a href="{% url "index" %}"><img src="{% static "logo.jpg" %}" alt="Logo" class="logo" style="width: 5rem; height: 5rem;"></a>
-            <a href="{% url "items"%}">Hub</a>
-            <span> Hello, {{request.user}} </span>
-            {% if request.user.is_staff %}
-                <a href="{% url 'add_vinyl' %}">ADD ITEM</a>
-                <a href="{% url 'add_artist' %}">ADD ARTIST</a>
+            <!-- Logo -->
+            <a href="{% url 'index' %}">
+                <img src="{% static 'logo.jpg' %}" alt="Logo" class="logo" style="width: 5rem; height: 5rem;">
+            </a>
+            <!-- Navigation Links -->
+            <button onclick="location.href='{% url 'items' %}'">Collection</button>
+            {% if request.user.is_authenticated %}
+                <!-- Admin Links Dropdown -->
+                {% if request.user.is_staff %}
+                    <div class="dropdown">
+                        <button class="dropbtn">Admin Actions</button>
+                        <div class="dropdown-content">
+                            <a href="{% url 'add_vinyl' %}">Add Item</a>
+                            <a href="{% url 'add_artist' %}">Add Artist</a>
+                            <a href="{% url 'add_tag' %}">Add Tag</a>
+                            <a href="{% url 'manage_content' %}">Manage</a>
+                        </div>
+                    </div>
+                {% endif %}
+                <!-- Account Link -->
+                <button onclick="location.href='{% url 'userpage' %}'">Account</button>
+                <!-- Logout Link -->
+                <button onclick="location.href='{% url 'logout' %}'">Logout</button>
+            {% else %}
+                <!-- Login Link -->
+                <button onclick="location.href='{% url 'login' %}'">Login</button>
             {% endif %}
-            <span><a href="{% url 'logout' %}">Logout</a></span>
         </nav>
-
     </header>
-    {% block content %}
-    
-    {% endblock %}
+
+    <!-- Main Content Block -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer Section -->
     <footer class="main-footer">
         <div class="footer-content">
             <p>&copy; 2024 VinylVault. All rights reserved.</p>
             <nav>
-                <a href="{% url 'items' %}">Hub</a>
+                <button id="scroll-to-top">Top</button>
             </nav>
         </div>
     </footer>
+
+    <!-- JavaScript Libraries and Scripts -->
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Additional scripts -->
+    <script src="{% static 'hub/colorchange.js' %}" defer></script>
+    <script src="{% static 'hub/main.js' %}" defer></script>
+    <!-- Dropdown functionality script -->
+    <script src="{% static 'hub/dropdown.js' %}" defer></script>
 </body>
 </html>

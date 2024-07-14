@@ -1,66 +1,74 @@
-/* hub/vinyl.css */
-
-/* Vinyl list container styling */
+/* Container for the vinyl list */
 #latest-additions {
-  margin: 3rem auto;
-  width: 90%;
-  max-width: 60rem;
+  margin: 3rem auto; /* Centered margin */
+  width: 90%; /* 90% width of the parent container */
+  max-width: 60rem; /* Maximum width to maintain readability */
+  overflow-x: auto; /* Enable horizontal scrolling */
 }
 
-/* Vinyl list styling */
+/* List of vinyls displayed horizontally */
 ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 2rem;
+  list-style: none; /* Remove default list styles */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Use flexbox for layout */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 2rem; /* Gap between vinyl items */
 }
 
-/* Individual vinyl styling */
+/* Styling for each individual vinyl item */
 .vinyl {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  width: 100%;
-  max-width: 15rem;
+  background-color: #ffffff; /* White background */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); /* Subtle box shadow */
+  overflow: hidden; /* Hide overflowing content */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+  width: 15rem; /* Fixed width for each vinyl */
+  flex-shrink: 0; /* Prevent items from shrinking */
+  flex-grow: 0; /* Prevent items from growing */
+  transition: background-color 0.3s ease;
 }
 
+/* Image styling within each vinyl */
 .vinyl img {
-  width: 100%;
-  height: auto;
-  display: block;
+  width: 100%; /* Full width image */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Make image a block element */
 }
 
+/* Link styling for each vinyl */
 .vinyl a {
-  display: block;
-  color: #000;
-  text-decoration: none;
-  padding: 1rem;
+  display: block; /* Make link a block element */
+  color: #000; /* Black font color */
+  text-decoration: none; /* Remove underline */
+  padding: 1rem; /* Padding for clickable area */
 }
 
-.vinyl a:hover {
-  background-color: #00ff00;
-  transform: scale(1.05);
+/* Hover effect on vinyl */
+/* Hover effect on vinyl */
+.vinyl:hover {
+  background-color: var(--dominant-color); /* Use CSS variable with fallback color */
+  
 }
 
-/* Vinyl content styling */
+
+/* Content area within each vinyl */
 .vinyl-content {
-  padding: 1rem;
+  padding: 1rem; /* Padding inside content area */
 }
 
+/* Title styling within each vinyl */
 .vinyl-content h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin: 0.5rem 0;
-  text-align: center;
+  font-size: 1.2rem; /* Larger font size */
+  color: #333; /* Darker font color */
+  margin: 0.5rem 0; /* Margin around the title */
+  text-align: center; /* Center align text */
 }
 
+/* Description styling within each vinyl */
 .vinyl-content p {
-  font-size: 0.9rem;
-  color: #666;
-  margin: 0;
-  text-align: center;
+  font-size: 0.9rem; /* Smaller font size */
+  color: #666; /* Medium dark font color */
+  margin: 0; /* Remove margin */
+  text-align: center; /* Center align text */
 }

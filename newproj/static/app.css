@@ -1,95 +1,208 @@
-/* General body styling */
+/* General Styles */
 body {
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #1a1a1a;
+  line-height: 1.6;
+  color: #8B008B;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
 }
 
-/* Styling the header */
-header.mainnav {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem 0;
-  box-shadow: 0 4px 2px -2px gray;
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* Ensure the header is above other content */
+a {
+  text-decoration: none;
+  color: #ff6f61;
 }
 
-/* Styling the navigation bar */
-header.mainnav nav {
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.mainnav {
+  background-color: #2a2a2a;
+  padding: 20px 0;
+}
+
+.mainnav nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
 }
 
-/* Styling the logo */
-header.mainnav .logo {
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
   width: 5rem;
   height: 5rem;
 }
 
-/* Styling the navigation links */
-header.mainnav nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 1rem;
-  transition: color 0.3s ease;
+.mainnav button {
+  background-color: #ff6f61;
+  color: #8B008B;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  border-radius: 5px;
+  margin: 0 5px;
 }
 
-/* Adding hover effect for links */
-header.mainnav nav a:hover {
-  color: #ff6347; /* Tomato color */
+.mainnav button:hover {
+  background-color: #e05b50;
+  transform: scale(1.05);
 }
 
-/* Adding responsive design */
-@media (max-width: 768px) {
-  header.mainnav nav {
-    flex-direction: column;
-    text-align: center;
-  }
-  header.mainnav nav a {
-    margin: 0.5rem 0;
-  }
+/* Greeting Section */
+.greeting-section {
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  border-radius: 5px;
 }
 
-/* Footer styling */
-footer.main-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 2rem 0;
-  box-shadow: 0 -4px 2px -2px gray;
+.greeting-section p {
+  color: #8B008B;
+  font-size: 1.5rem;
 }
 
-footer.main-footer .footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+/* Main Content */
+main {
+  flex: 1; /* Allow the main content to grow and fill available space */
+  padding: 40px 0;
+}
+
+/* Footer */
+.main-footer {
+  background-color: #2a2a2a;
+  color: #8B008B;
+  padding: 20px 0;
   text-align: center;
 }
 
-footer.main-footer .footer-content p {
-  margin: 0.5rem 0;
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-footer.main-footer nav {
-  margin-top: 1rem;
+.footer-content p {
+  margin: 10px 0;
+  color: #8B008B;
 }
 
-footer.main-footer nav a {
-  color: #fff;
+.footer-content button {
+  background-color: #ff6f61;
+  color: #8B008B;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.footer-content button:hover {
+  background-color: #e05b50;
+  transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .mainnav nav {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .mainnav button {
+      margin: 10px 0;
+  }
+
+  main {
+      padding: 20px;
+  }
+}
+
+/* Username Animation */
+.username {
+  font-weight: bold;
+  animation: rgb-animation 3s infinite;
+}
+
+@keyframes rgb-animation {
+  0% { color: #ff0000; }
+  20% { color: #ff9900; }
+  40% { color: #ffff00; }
+  60% { color: #33cc33; }
+  80% { color: #0066ff; }
+  100% { color: #ff00ff; }
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+  outline: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px; /* Optional: adds rounded corners */
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  background-color: #4CAF50; /* Background color to match the dropdown button */
+  padding: 10px 20px;
   text-decoration: none;
-  margin: 0 1rem;
-  transition: color 0.3s ease;
+  display: block;
+  text-align: center;
+  border-radius: 3px; /* Slightly rounded corners for a button-like appearance */
+  margin: 5px; /* Adds space around each button */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
-footer.main-footer nav a:hover {
-  color: #ff6347; /* Tomato color */
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #3e8e41; /* Darker shade on hover */
 }
+
+@media (max-width: 600px) {
+  .dropdown-content {
+    width: 100%;
+  }
+}
+

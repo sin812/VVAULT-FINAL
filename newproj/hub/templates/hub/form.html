@@ -1,36 +1,21 @@
-
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Add Vinyl</title>
-    <link rel="stylesheet" href="{% static 'app.css' %}">
-    {% block stylesheets %}{% endblock %}
-</head>
-<body>
-    <header class="mainnav">
-        <nav>
-            <a href="{% url 'index' %}"><img src="{% static 'logo.jpg' %}" alt="Logo" class="logo" style="width: 5rem; height: 5rem;"></a>
-            <a href="{% url 'items' %}">Hub</a>
-        </nav>
-    </header>
-    <section id="add-vinyl">
-        <h2>Add Vinyl</h2>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Save Vinyl</button>
-        </form>
-    </section>
-    <footer class="main-footer">
-        <div class="footer-content">
-            <p>&copy; 2024 VinylVault. All rights reserved.</p>
-            <nav>
-            </nav>
-        </div>
-    </footer>
-</body>
-</html>
+{% block title %}
+    Add Vinyl
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Add Vinyl</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Save Vinyl</button>
+    </form>
+</div>
+{% endblock %}

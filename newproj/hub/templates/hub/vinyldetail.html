@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title%}
+{% block title %}
     {{ vinyl.title }}
 {% endblock %}
 
@@ -10,19 +10,21 @@
 {% endblock %}
 
 {% block content %}
-
 <section id="summary">
-    <img src="{{vinyl.image.url}}" alt="Vinyl Cover" />
-    <h2> {{vinyl.title}} </h2>
-    <div> 
-       {% for tag in vinyl_tags %}
-            <span class="tag"> {{ tag.caption }} </span>
-        {% endfor %}
+    <div class="summary-content">
+        <img src="{{ vinyl.image.url }}" alt="Vinyl Cover" class="vinyl-cover">
+        <div class="summary-details">
+            <h2>{{ vinyl.title }}</h2>
+            <div class="tags">
+                {% for tag in vinyl_tags %}
+                    <span class="tag">{{ tag.caption }}</span>
+                {% endfor %}
+            </div>
+            <p><strong>Artist:</strong> {{ vinyl.artist }}</p>
+            <p><strong>Album:</strong> {{ vinyl.album }}</p>
+            <p><strong>Genre:</strong> {{ vinyl.genre }}</p>
+            <p><strong>Year:</strong> {{ vinyl.year }}</p>
+        </div>
     </div>
-    <p> Artist: {{ vinyl.artist }} </p>\
-    <p> Album: {{ vinyl.album }} </p>
-    <p> Genre: {{ vinyl.genre }} </p>
-    <p> Year: {{ vinyl.year }} </p>
 </section>
-
 {% endblock %}

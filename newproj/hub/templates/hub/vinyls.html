@@ -1,24 +1,52 @@
 {% extends "base.html" %}
 {% load static %}
 
-
-
-{% block title%}
+{% block title %}
     VinylVault
 {% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{% static "hub/index.css" %}">
-    <link rel="stylesheet" href="{% static "hub/vinyl.css" %}">
+    <link rel="stylesheet" href="{% static 'hub/index.css' %}">
+    <link rel="stylesheet" href="{% static 'hub/vinyl.css' %}">
 {% endblock %}
 
 {% block content %}
-    <section id="vinyls">
-        <h2>The Collection</h2>
-        <ul>
-            {%for vinyl in allvinyls%}
-                {% include "hub/includes/vinyl.html" %}
-            {% endfor %}
-        </ul>
-    </section>
+<section id="latest-additions">
+    <h2>The Collection</h2>
+    <div class="filter-section">
+        <form action="{% url 'search_vinyls_title' %}" method="get" class="search-form">
+            <input type="text" name="search_query_title" placeholder="Search by title..." value="{{ request.GET.search_query_title }}" required class="search-input">
+            <button type="submit" class="search-button">Search Title</button>
+        </form>
+        <form action="{% url 'search_vinyls_tag' %}" method="get" class="search-form">
+            <input type="text" name="search_query_tag" placeholder="Search by tag..." value="{{ request.GET.search_query_tag }}" required class="search-input">
+            <button type="submit" class="search-button">Search Tag</button>
+        </form>
+        <!-- Dropdown for Artist Filter -->
+        <form action="{% url 'items' %}" method="get" class="filter-form">
+            <select name="artist" class="filter-select">
+                <option value="">Select Artist</option>
+                {% for artist in artists %}
+                    <option value="{{ artist.id }}" {% if request.GET.artist == artist.id|stringformat:"s" %}selected{% endif %}>{{ artist.name }}</option>
+                {% endfor %}
+            </select>
+            <select name="genre" class="filter-select">
+                <option value="">Select Genre</option>
+                {% for genre in genres %}
+                    <option value="{{ genre }}" {% if request.GET.genre == genre %}selected{% endif %}>{{ genre }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="filter-button">Filter</button>
+        </form>
+    </div>
+    <ul>
+        {% for vinyl in allvinyls %}
+            {% include "hub/includes/vinyl.html" %}
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'hub/colorchange.js' %}" defer></script>
 {% endblock %}

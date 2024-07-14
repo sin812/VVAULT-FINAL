@@ -1,69 +1,80 @@
-body {
-  background-color: #000000; /* Change to your desired color */
-}
+/* hub/vinyldetail.css */
 
-#main-navigation {
-  background-color: #ff0000; /* Change to your desired color */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
+/* Container for vinyl summary */
 #summary {
-  margin: 8rem auto 3rem auto;
-  padding: 2rem;
-  width: 90%;
-  max-width: 90rem;
-  border-radius: 16px;
-  background-color: #00ff00; /* Change to your desired color */
-  position: relative;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 22rem;
+  max-width: 800px; /* Maximum width for content */
+  margin: 2rem auto; /* Centered margin with spacing */
+  padding: 2rem; /* Padding inside container */
+  background-color: #ffffff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
 }
 
+/* Vinyl cover image */
+.vinyl-cover {
+  width: 100%; /* Full width */
+  max-width: 400px; /* Maximum width for responsiveness */
+  display: block; /* Make image a block element */
+  margin-bottom: 1rem; /* Space below image */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+/* Summary details */
+.summary-content {
+  display: flex; /* Use flexbox for layout */
+}
+
+.summary-details {
+  flex: 1; /* Take remaining space */
+  padding-left: 2rem; /* Spacing between image and details */
+}
+
+/* Title of the vinyl */
 #summary h2 {
-  color: #ffffff; /* Change to your desired color */
-  font-size: 4.5rem;
+  font-size: 2.5rem; /* Larger font size */
+  color: #333; /* Dark gray text color */
+  margin-bottom: 1rem; /* Space below title */
 }
 
-#summary article {
-  position: absolute;
-  top: 2rem;
-  right: 3rem;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  text-align: right;
-  color: #ffffff; /* Change to your desired color */
-}
-
-#summary article img {
-  width: 12rem;
-  height: 12rem;
-  border-radius: 12px;
-  transform: rotateZ(5deg);
-  border: 5px solid #ffffff; /* Change to your desired color */
-  margin-bottom: 1rem;
-}
-
-#summary address {
-  font-weight: bold;
-}
-
-#summary time {
-  font-weight: bold;
-} 
-
-main {
-  width: 90%;
-  max-width: 90rem;
-  margin: 3rem auto;
-  background-color: #ffffff; /* Change to your desired color */
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+/* Tags associated with the vinyl */
+.tags {
+  margin-bottom: 1rem; /* Space below tags */
 }
 
 .tag {
-  display: flex;
-  gap: 1rem;
-  color: #0000ff; /* Change to your desired color */
-  margin: 1rem 0;
+  display: inline-block; /* Display tags in a line */
+  background-color: #ff00ff; /* Magenta background color */
+  color: #ffffff; /* White text color */
+  font-size: 0.8rem; /* Smaller font size */
+  padding: 0.3rem 0.5rem; /* Padding around tags */
+  margin-right: 0.5rem; /* Space between tags */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Information about the vinyl (artist, album, genre, year) */
+.summary-details p {
+  font-size: 1rem; /* Font size */
+  color: #666; /* Medium dark text color */
+  margin-bottom: 0.5rem; /* Space below each paragraph */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #summary {
+      padding: 1.5rem; /* Adjusted padding */
+  }
+
+  .vinyl-cover {
+      max-width: 100%; /* Full width for smaller screens */
+  }
+
+  .summary-content {
+      flex-direction: column; /* Stack content vertically on small screens */
+  }
+
+  .summary-details {
+      padding-left: 0; /* Remove left padding on small screens */
+      margin-top: 1rem; /* Space above details on small screens */
+  }
 }
