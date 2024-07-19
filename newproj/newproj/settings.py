@@ -146,9 +146,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-# settings.py
-
-
+ADMIN_EMAIL = 'xxx2ndemailxxx@gmail.com'
 
 
 

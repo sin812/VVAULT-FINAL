@@ -18,7 +18,7 @@ class RegisterForm(UserCreationForm):
     username = forms.CharField(
         required=True,
         label="Username",
-        help_text="UsernameAAAAAAAAAAA",
+        help_text="Username",
         validators=[validate_no_special_characters],
     )
     first_name = forms.CharField(

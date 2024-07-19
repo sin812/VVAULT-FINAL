@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Review Form</title>
+</head>
+<body>
+    <h1>Test Review Form</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            {{ review_form.rating.label_tag }} {{ review_form.rating }}
+        </div>
+        <div>
+            {{ review_form.comment.label_tag }} {{ review_form.comment }}
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    {% if review_form.errors %}
+        <div>
+            <h3>Form Errors:</h3>
+            {{ review_form.errors }}
+        </div>
+    {% endif %}
+</body>
+</html>

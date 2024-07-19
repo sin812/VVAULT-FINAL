@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Checkout
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static "hub/vinyldetail.css" %}">
+{% endblock %}
+
+{% block content %}
+<div id="checkout">
+    <h2>Checkout</h2>
+    <form id="checkout-form" method="post">
+        {% csrf_token %}
+        <div class="checkout-items">
+            {% for item in cart_items %}
+                <div class="checkout-item">
+                    <p>{{ item.vinyl.title }} - {{ item.quantity }} x ${{ item.vinyl.price }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="checkout-total">
+            <p>Total: ${{ total_price }}</p>
+        </div>
+        <button type="submit" class="btn btn-primary">Confirm Purchase</button>
+        <a href="{% url 'view_cart' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

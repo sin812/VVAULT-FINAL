@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Your Cart
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static "hub/vinyldetail.css" %}">
+    <link rel="stylesheet" href="{% static "hub/cart.css" %}">
+{% endblock %}
+
+{% block content %}
+<div id="cart">
+    <h2>Your Cart</h2>
+    {% if cart_items %}
+        {% for item in cart_items %}
+            <div class="cart-item">
+                <img src="{{ item.vinyl.image.url }}" alt="{{ item.vinyl.title }}">
+                <p>{{ item.vinyl.title }} - ${{ item.vinyl.price }}</p>
+                <div class="quantity-controls">
+                    <a href="{% url 'decrease_quantity' item.id %}" class="btn btn-secondary">-</a>
+                    <span>{{ item.quantity }}</span>
+                    <a href="{% url 'increase_quantity' item.id %}" class="btn btn-secondary">+</a>
+                </div>
+                <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-danger">Remove</a>
+            </div>
+        {% endfor %}
+        <div class="cart-total">Total: ${{ total_price }}</div>
+        <div class="cart-buttons">
+            <a href="{% url 'items' %}" class="btn btn-secondary">Continue Shopping</a>
+            <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+        </div>
+    {% else %}
+        <p>Your cart is empty.</p>
+        <div class="cart-buttons">
+            <a href="{% url 'items' %}" class="btn btn-secondary">Continue Shopping</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -49,5 +49,11 @@ class EditUserForm(forms.ModelForm):
             'email': 'Email'
         }
 
+class RateVinylForm(forms.ModelForm):
+    rating = forms.IntegerField(min_value=1, max_value=10)
+
+    class Meta:
+        model = Vinyl
+        fields = ['rating']
 
 

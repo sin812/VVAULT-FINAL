@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .forms import RegisterForm
 from .decorators import unauthenticated_user
 from django.contrib.auth.models import Group
+from django.contrib.auth.decorators import login_required
 
 
 def userpage(request):
@@ -54,3 +56,4 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')  # Replace 'index' with your desired URL name
+

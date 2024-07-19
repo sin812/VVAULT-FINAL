@@ -16,14 +16,16 @@
         <div class="summary-details">
             <h2>{{ vinyl.title }}</h2>
             <div class="tags">
-                {% for tag in vinyl_tags %}
+                {% for tag in vinyl.tags.all %}
                     <span class="tag">{{ tag.caption }}</span>
                 {% endfor %}
             </div>
             <p><strong>Price:</strong> {{ vinyl.price }}$</p>
-            <p><strong>Artist:</strong> {{ vinyl.artist }}</p>
+            <p><strong>Artist:</strong> {{ vinyl.artist.name }}</p>
             <p><strong>Genre:</strong> {{ vinyl.genre }}</p>
             <p><strong>Year:</strong> {{ vinyl.year }}</p>
+            <p><strong>Rating:</strong> {{ vinyl.rating }}</p>
+            <a href="{% url 'add_to_cart' vinyl.id %}" class="btn-buy-now">Buy Now</a>
         </div>
     </div>
 </section>
