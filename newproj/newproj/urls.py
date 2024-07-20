@@ -13,5 +13,5 @@ urlpatterns = [
     path("userpage/", v.userpage, name="userpage"), #userpage url
     path('', include("django.contrib.auth.urls")), #include all the urls from django.contrib.auth.urls
     path("", include('hub.urls')), #include all the urls from hub.urls
-]
+] 
 

@@ -3,20 +3,20 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #1a1a1a;  /* Dark background */
+  background-color: #282828;  /* Dark background */
   line-height: 1.6;
-  color: #000000;  /* Light text color */
+  color: #e6e6e6;  /* Light text color */
 }
 
 a {
   text-decoration: none;
-  color: #74FF74;  /* Bright link color */
+  color: #98FB98;  /* Bright green link color */
 }
 
 h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #000000;  /* Light heading color */
+  color: #98FB98;  /* Bright green heading color */
 }
 
 /* Container */
@@ -28,7 +28,7 @@ h2 {
 
 /* Header */
 .mainnav {
-  background-color: #4B0082;  /* Dark header background */
+  background-color: #800080;  /* Bright purple header background */
   padding: 20px 0;
 }
 
@@ -49,8 +49,8 @@ h2 {
 }
 
 .mainnav button {
-  background-color: #9370DB;  /* Button color */
-  color: #74FF74;
+  background-color: #BA55D3;  /* Brighter purple button color */
+  color: #98FB98;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
@@ -61,14 +61,14 @@ h2 {
 }
 
 .mainnav button:hover {
-  background-color: #8B008B;  /* Hover button color */
+  background-color: #9932CC;  /* Hover button color */
   transform: scale(1.05);
 }
 
 /* Welcome Section */
 #welcome {
-  background: linear-gradient(to right top, #4B0082, #8B008B);  /* Gradient background */
-  color: #74FF74;  /* White text color */
+  background: linear-gradient(to right top, #800080, #9932CC);  /* Brighter gradient background */
+  color: #98FB98;  /* Light green text color */
   text-align: center;
   padding: 6rem 12%;
   max-width: 1200px;
@@ -83,14 +83,14 @@ h2 {
 
 /* Latest Additions Section */
 #latest-additions {
-  background-color: #2a2a2a;  /* Dark background */
+  background-color: #333333;  /* Dark background */
   padding: 4rem 12%;
 }
 
 #latest-additions h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #000000;  /* Light heading color */
+  color: #98FB98;  /* Bright green heading color */
 }
 
 #latest-additions ul {
@@ -103,7 +103,7 @@ h2 {
 }
 
 .vinyl {
-  background-color: #333;  /* Dark card background */
+  background-color: #444444;  /* Dark card background */
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -120,7 +120,7 @@ h2 {
 
 .vinyl a {
   display: block;
-  color: #CDA2D8;  /* Light text color */
+  color: #BA55D3;  /* Bright purple text color */
   text-decoration: none;
   padding: 1rem;
 }
@@ -131,8 +131,8 @@ h2 {
 
 /* About Us Section */
 #about-us {
-  background-color: #4B0082;  /* Dark background */
-  color: #74FF74;  /* Highlight text color */
+  background-color: #800080;  /* Bright purple background */
+  color: #98FB98;  /* Light green text color */
   text-align: center;
   padding: 4rem 12%;
   border-radius: 12px;  /* Rounded edges */
@@ -151,11 +151,10 @@ h2 {
   line-height: 1.6;
 }
 
-
 /* Footer */
 .main-footer {
-  background-color: #4B0082;  /* Dark footer background */
-  color: 74FF74;
+  background-color: #800080;  /* Bright purple footer background */
+  color: #98FB98;
   padding: 20px 0;
   text-align: center;
 }
@@ -168,12 +167,12 @@ h2 {
 
 .footer-content p {
   margin: 10px 0;
-  color: #CDA2D8;  /* Light text color */
+  color: #BA55D3;  /* Bright purple text color */
 }
 
 .footer-content button {
-  background-color: #9370DB;  /* Button color */
-  color: #74FF74;
+  background-color: #BA55D3;  /* Brighter button color */
+  color: #98FB98;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
@@ -184,7 +183,7 @@ h2 {
 }
 
 .footer-content button:hover {
-  background-color: #8B008B;  /* Hover button color */
+  background-color: #9932CC;  /* Hover button color */
   transform: scale(1.05);
 }
 
@@ -193,44 +192,44 @@ h2 {
   /* Add your responsive adjustments here */
 }
 
-* Search Form Styles */
+/* Search Form Styles */
 .search-form {
-    margin: 2rem auto; /* Centers the form and adds vertical spacing */
-    display: flex;
-    justify-content: center; /* Aligns form contents in the center */
-    gap: 10px; /* Spacing between input and button */
+  margin: 2rem auto; /* Centers the form and adds vertical spacing */
+  display: flex;
+  justify-content: center; /* Aligns form contents in the center */
+  gap: 10px; /* Spacing between input and button */
 }
 
 .search-input {
-    width: 40%; /* Responsive width */
-    padding: 10px;
-    border-radius: 5px; /* Rounded edges */
-    border: none; /* Removes the default border */
-    background-color: #333; /* Dark background for the input */
-    color: #74FF74; /* Text color */
-    font-size: 1rem;
+  width: 40%; /* Responsive width */
+  padding: 10px;
+  border-radius: 5px; /* Rounded edges */
+  border: none; /* Removes the default border */
+  background-color: #333333; /* Dark background for the input */
+  color: #98FB98; /* Text color */
+  font-size: 1rem;
 }
 
 .search-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #9370DB; /* Button color */
-    color: #74FF74; /* Text color */
-    transition: background-color 0.3s, transform 0.3s;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #BA55D3; /* Bright purple button color */
+  color: #98FB98; /* Text color */
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .search-button:hover {
-    background-color: #8B008B; /* Darker shade on hover */
-    transform: scale(1.05); /* Slightly enlarge button on hover */
+  background-color: #9932CC; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
 }
 
 @media (max-width: 768px) {
-    .search-input {
-        width: 60%; /* Larger width on smaller screens */
-    }
+  .search-input {
+    width: 60%; /* Larger width on smaller screens */
+  }
 }
 
 /* Filter Section Styles */
@@ -239,7 +238,7 @@ h2 {
   justify-content: center;
   padding: 1rem;
   flex-wrap: wrap;
-  background-color: #f9f9f9;
+  background-color: #444444;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
@@ -269,7 +268,7 @@ h2 {
 
 .search-input:focus,
 .filter-select:focus {
-  border-color: #007bff;
+  border-color: #800080;
   outline: none;
 }
 
@@ -278,7 +277,7 @@ h2 {
   width: 100%; /* Make buttons take full width */
   max-width: 300px; /* Limit maximum width */
   padding: 0.5rem 1.5rem;
-  background-color: #007bff;
+  background-color: #BA55D3;
   color: white;
   border: none;
   border-radius: 4px;
@@ -289,20 +288,105 @@ h2 {
 
 .search-button:hover,
 .filter-button:hover {
-  background-color: #0056b3;
+  background-color: #9932CC;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
   .filter-section {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .search-form,
   .filter-form {
-      width: 100%;
-      max-width: 400px;
+    width: 100%;
+    max-width: 400px;
   }
 }
 
+/* Contact Section */
+#contact {
+  background-color: #333333; /* Dark background to match the theme */
+  color: #98FB98; /* Light green text color */
+  text-align: center;
+  padding: 4rem 12%;
+  border-radius: 12px; /* Rounded edges */
+  max-width: 600px; /* Limit the maximum width */
+  margin: 2rem auto; /* Center the section horizontally and add vertical spacing */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Add some shadow for depth */
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #98FB98; /* Light green heading color */
+}
+
+#contact p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #98FB98; /* Light green text color */
+}
+
+#contact .form-group {
+  margin-bottom: 1.5rem;
+}
+
+#contact label {
+  display: block;
+  font-size: 1rem;
+  color: #BA55D3; /* Bright purple label color */
+  margin-bottom: 0.5rem;
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 5px; /* Rounded edges */
+  border: none; /* Removes the default border */
+  background-color: #444444; /* Dark background for the input and textarea */
+  color: #98FB98; /* Text color */
+  font-size: 1rem;
+  box-sizing: border-box; /* Ensures padding doesn't affect total width */
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border: 2px solid #800080; /* Add border on focus */
+  outline: none; /* Remove default outline */
+}
+
+#contact button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #BA55D3; /* Bright purple button color */
+  color: #98FB98; /* Text color */
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 1rem;
+}
+
+#contact button:hover {
+  background-color: #9932CC; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #contact {
+    padding: 2rem 5%;
+  }
+
+  #contact h2 {
+    font-size: 2rem;
+  }
+
+  #contact p {
+    font-size: 1rem;
+  }
+}

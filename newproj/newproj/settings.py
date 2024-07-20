@@ -21,16 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =  'django-insecure-jewnzn)c7-wwxh2le0_**yua=f7or4-!qko-3xm6tp79d&)dp7'
+SECRET_KEY =  getenv("SECRETKEY") #getting the secret key from the environment variables
 
 #getenv("SECRETKEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = getenv("UNDER_CONSTRUCTION", True) #getting the debug value from the environment variables
+DEBUG = False #getting the debug value from the environment variables
 
-ALLOWED_HOSTS = [
-    '127.0.0.1' #getting the allowed hosts from the environment variables
+ALLOWED_HOSTS = [ #getting the allowed hosts from the environment variables
 ]
 
 
@@ -126,6 +125,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_URL = '/static/'
 

@@ -5,88 +5,6 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{% static 'hub/index.css' %}">
     <link rel="stylesheet" href="{% static 'hub/vinyl.css' %}">
-    <style>
-        /* Contact Section */
-        #contact {
-            background-color: #1a1a1a; /* Very dark background */
-            padding: 4rem 12%;
-            text-align: center;
-            color: #b3b3b3; /* Slightly darker text color */
-        }
-
-        #contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #74FF74; /* Highlight color */
-        }
-
-        #contact form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #1a1a1a; /* Dark form background */
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        #contact .form-group {
-            margin-bottom: 1.5rem;
-            width: 100%;
-        }
-
-        #contact label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-            color: #b3b3b3; /* Slightly darker text color */
-        }
-
-        #contact input,
-        #contact textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #333; /* Darker border */
-            border-radius: 5px;
-            font-size: 1rem;
-            font-family: 'Arial', sans-serif;
-            background-color: #262626; /* Darker input background */
-            color: #b3b3b3; /* Slightly darker text color */
-        }
-
-        #contact input:focus,
-        #contact textarea:focus {
-            outline: none;
-            border-color: #74FF74;
-            background-color: #333; /* Darker focus background */
-        }
-
-        #contact textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        #contact button {
-            background-color: #74FF74; /* Highlight button color */
-            color: #1a1a1a;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            border-radius: 5px;
-            margin-top: 1rem;
-        }
-
-        #contact button:hover {
-            background-color: #4B0082;
-            color: #fff;
-            transform: scale(1.05);
-        }
-    </style>
 {% endblock %}
 
 {% block content %}
@@ -105,7 +23,7 @@
 
     <!-- Latest Additions Section -->
     <section id="latest-additions">
-        <h2>New Vinyls</h2>
+        <h2>New Additions</h2>
         <ul>
             {% for vinyl in vinyls %}
                 {% include "hub/includes/vinyl.html" %}

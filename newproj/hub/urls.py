@@ -29,4 +29,4 @@ urlpatterns = [
     path('remove-from-cart/<int:item_id>/', views.remove_from_cart, name='remove_from_cart'),
     path('increase-quantity/<int:item_id>/', views.increase_quantity, name='increase_quantity'),
     path('decrease-quantity/<int:item_id>/', views.decrease_quantity, name='decrease_quantity'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

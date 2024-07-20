@@ -25,8 +25,15 @@
                     <img src="{% static 'logo.jpg' %}" alt="Logo" class="logo" style="width: 5rem; height: 5rem;">
                 </a>
             </div>
+             
             <!-- Navigation Links -->
             <div class="nav-links">
+                <!-- Cart Icon Container -->
+            <div class="cart-container">
+                <a href="{% url 'view_cart' %}">
+                    <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Cart" class="cart-icon" style="width: 2rem; height: 2rem;">
+                </a>
+            </div>
                 <button onclick="location.href='{% url 'items' %}'">Collection</button>
                 {% if request.user.is_authenticated %}
                     <!-- Admin Links Dropdown -->
@@ -53,11 +60,6 @@
                             </div>
                         </div>
                     {% endif %}
-
-                    <!-- Cart Icon -->
-                    <a href="{% url 'view_cart' %}">
-                        <img src="{% static 'cartshop.jpg' %}" alt="Cart" class="cart-icon" style="width: 2rem; height: 2rem; margin-left: 1rem;">
-                    </a>
                     <!-- Account Link -->
                     <button onclick="location.href='{% url 'userpage' %}'">Account</button>
                     <!-- Logout Link -->
@@ -93,5 +95,6 @@
     <script src="{% static 'hub/main.js' %}" defer></script>
     <!-- Dropdown functionality script -->
     <script src="{% static 'hub/dropdown.js' %}" defer></script>
+    <script src="{% static 'hub/colorchangedetail.js' %}" defer></script>
 </body>
 </html>

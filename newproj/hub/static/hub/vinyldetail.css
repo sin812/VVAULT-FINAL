@@ -1,6 +1,6 @@
 /* Container for vinyl summary */
 #summary {
-  max-width: 800px; /* Maximum width for content */
+  max-width: 1200px; /* Increased maximum width for content */
   margin: 2rem auto; /* Centered margin with spacing */
   padding: 2rem; /* Padding inside container */
   background-color: #f9f9f9; /* Light gray background for better contrast */
@@ -21,12 +21,12 @@
 /* Summary details */
 .summary-content {
   display: flex; /* Use flexbox for layout */
-  flex-wrap: wrap; /* Wrap content for better responsiveness */
+  flex-wrap: nowrap; /* Prevent wrapping for better layout */
+  gap: 2rem; /* Space between image and details */
 }
 
 .summary-details {
   flex: 1; /* Take remaining space */
-  padding-left: 2rem; /* Spacing between image and details */
   display: flex; /* Use flexbox */
   flex-direction: column; /* Stack details vertically */
   justify-content: center; /* Center details vertically */
@@ -43,6 +43,67 @@
 /* Tags associated with the vinyl */
 .tags {
   margin-bottom: 1rem; /* Space below tags */
+}
+
+.tag {
+  display: inline-block; /* Display tags in a line */
+  background-color: #ff00ff; /* Magenta background color */
+  color: #ffffff; /* White text color */
+  font-size: 0.9rem; /* Slightly larger font size */
+  padding: 0.4rem 0.7rem; /* More padding for better touch targets */
+  margin-right: 0.5rem; /* Space between tags */
+  border-radius: 4px; /* Rounded corners */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Improved font stack */
+}
+
+/* Information about the vinyl (artist, album, genre, year) */
+.summary-details p {
+  font-size: 1rem; /* Font size */
+  color: #666; /* Medium dark text color */
+  margin-bottom: 0.5rem; /* Space below each paragraph */
+  line-height: 1.5; /* Improved readability */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Improved font stack */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  #summary {
+      max-width: 1000px; /* Adjusted maximum width */
+  }
+
+  .summary-content {
+      flex-direction: column; /* Stack content vertically on smaller screens */
+  }
+
+  .summary-details {
+      padding-left: 0; /* Remove left padding */
+      margin-top: 1rem; /* Space above details */
+  }
+}
+
+@media (max-width: 768px) {
+  #summary {
+      padding: 1.5rem; /* Adjusted padding */
+  }
+
+  .vinyl-cover {
+      max-width: 100%; /* Full width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  #summary {
+      padding: 1rem; /* Further adjust padding for very small screens */
+  }
+
+  #summary h2 {
+      font-size: 1.8rem; /* Adjusted font size for small screens */
+  }
+
+  .tag {
+      font-size: 0.8rem; /* Smaller font size for tags on small screens */
+      padding: 0.3rem 0.5rem; /* Adjusted padding for small screens */
+  }
 }
 
 .tag {

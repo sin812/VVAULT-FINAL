@@ -3,9 +3,9 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #1a1a1a;
+  background-color: #282828;  /* Dark background */
   line-height: 1.6;
-  color: #74FF74;
+  color: #140b0b;  /* Light text color */
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
@@ -13,7 +13,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #74FF74;
+  color: #98FB98;  /* Bright green link color */
 }
 
 /* Container */
@@ -25,7 +25,7 @@ a {
 
 /* Header */
 .mainnav {
-  background-color: #4B0082;
+  background-color: #800080;  /* Bright purple header background */
   padding: 20px 0;
 }
 
@@ -53,8 +53,8 @@ a {
 }
 
 .mainnav button {
-  background-color: #9370DB;
-  color: #74FF74;
+  background-color: #BA55D3;  /* Brighter purple button color */
+  color: #98FB98;  /* Bright green text color */
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
@@ -65,7 +65,7 @@ a {
 }
 
 .mainnav button:hover {
-  background-color: #8B008B;
+  background-color: #9932CC;  /* Hover button color */
   transform: scale(1.05);
 }
 
@@ -78,7 +78,7 @@ a {
 }
 
 .greeting-section p {
-  color: #74FF74;
+  color: #98FB98;  /* Bright green text color */
   font-size: 1.5rem;
 }
 
@@ -90,8 +90,8 @@ main {
 
 /* Footer */
 .main-footer {
-  background-color: #4B0082;
-  color: #74FF74;
+  background-color: #800080;  /* Bright purple footer background */
+  color: #98FB98;  /* Bright green text color */
   padding: 20px 0;
   text-align: center;
 }
@@ -104,12 +104,12 @@ main {
 
 .footer-content p {
   margin: 10px 0;
-  color: #CDA2D8;
+  color: #BA55D3;  /* Brighter purple text color */
 }
 
 .footer-content button {
-  background-color: #9370DB;
-  color: #74FF74;
+  background-color: #BA55D3;  /* Brighter button color */
+  color: #98FB98;  /* Bright green text color */
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
@@ -120,7 +120,7 @@ main {
 }
 
 .footer-content button:hover {
-  background-color: #8B008B;
+  background-color: #9932CC;  /* Hover button color */
   transform: scale(1.05);
 }
 
@@ -158,7 +158,7 @@ main {
 /* Dropdown Button */
 .dropbtn {
   background-color: #007bff;
-  color: white;
+  color: #e6e6e6;  /* Light text color */
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -191,7 +191,7 @@ main {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: #74FF74;
+  color: #98FB98;  /* Bright green text color */
   background-color: #007bff;
   padding: 10px 20px;
   text-decoration: none;

@@ -7,3 +7,5 @@ document.addEventListener("DOMContentLoaded", function() {
         vinyl.style.setProperty("--dominant-color", dominantColor);
     });
 });
+
+

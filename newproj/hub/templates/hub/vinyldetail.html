@@ -23,9 +23,14 @@
             <p><strong>Price:</strong> {{ vinyl.price }}$</p>
             <p><strong>Artist:</strong> {{ vinyl.artist.name }}</p>
             <p><strong>Genre:</strong> {{ vinyl.genre }}</p>
+            <p><strong>Stock:</strong> {{ vinyl.stock}}</p>
             <p><strong>Year:</strong> {{ vinyl.year }}</p>
             <p><strong>Rating:</strong> {{ vinyl.rating }}</p>
-            <a href="{% url 'add_to_cart' vinyl.id %}" class="btn-buy-now">Buy Now</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'add_to_cart' vinyl.id %}" class="btn-buy-now">Buy Now</a>
+            {% else %}
+                <a href="{% url 'login' %}?next={% url 'add_to_cart' vinyl.id %}" class="btn-buy-now">Buy Now</a>
+            {% endif %}
         </div>
     </div>
 </section>
