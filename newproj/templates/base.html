@@ -28,14 +28,14 @@
              
             <!-- Navigation Links -->
             <div class="nav-links">
-                <!-- Cart Icon Container -->
-            <div class="cart-container">
-                <a href="{% url 'view_cart' %}">
-                    <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Cart" class="cart-icon" style="width: 2rem; height: 2rem;">
-                </a>
-            </div>
                 <button onclick="location.href='{% url 'items' %}'">Collection</button>
                 {% if request.user.is_authenticated %}
+                    <!-- Cart Icon Container -->
+                    <div class="cart-container">
+                        <a href="{% url 'view_cart' %}">
+                            <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Cart" class="cart-icon" style="width: 2rem; height: 2rem;">
+                        </a>
+                    </div>
                     <!-- Admin Links Dropdown -->
                     {% if request.user.is_staff %}
                         <div class="dropdown">

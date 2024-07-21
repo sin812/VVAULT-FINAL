@@ -6,19 +6,19 @@
 {% endblock %}
 
 {% block stylesheets %}
+    <!-- Link to the stylesheet specific for vinyl details -->
     <link rel="stylesheet" href="{% static "hub/vinyldetail.css" %}">
+    <!-- Link to the stylesheet specific for rating -->
     <link rel="stylesheet" href="{% static "hub/rating.css" %}">
 {% endblock %}
 
 {% block content %}
 <div id="ratings">
-    <h2>Rate {{ vinyl.title }}</h2>
+    <h2>Rate {{ vinyl.title }}</h2> <!-- Heading to rate the vinyl -->
     <form id="rating-form" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit Rating</button>
+        {% csrf_token %} <!-- CSRF token for security -->
+        {{ form.as_p }} <!-- Render the form fields as paragraphs -->
+        <button type="submit" class="btn btn-primary">Submit Rating</button> <!-- Submit button with Bootstrap styling -->
     </form>
 </div>
-
-
 {% endblock %}

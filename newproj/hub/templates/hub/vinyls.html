@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block stylesheets %}
+    <!-- Link to additional stylesheets -->
     <link rel="stylesheet" href="{% static 'hub/index.css' %}">
     <link rel="stylesheet" href="{% static 'hub/vinyl.css' %}">
 {% endblock %}
@@ -14,10 +15,12 @@
 <section id="latest-additions">
     <h2>The Collection</h2>
     <div class="filter-section">
+        <!-- Form to search vinyls by title -->
         <form action="{% url 'search_vinyls_title' %}" method="get" class="search-form">
             <input type="text" name="search_query_title" placeholder="Search by title..." value="{{ request.GET.search_query_title }}" required class="search-input">
             <button type="submit" class="search-button">Search Title</button>
         </form>
+        <!-- Form to search vinyls by tag -->
         <form action="{% url 'search_vinyls_tag' %}" method="get" class="search-form">
             <input type="text" name="search_query_tag" placeholder="Search by tag..." value="{{ request.GET.search_query_tag }}" required class="search-input">
             <button type="submit" class="search-button">Search Tag</button>
@@ -39,6 +42,7 @@
             <button type="submit" class="filter-button">Filter</button>
         </form>
     </div>
+    <!-- Display list of vinyls -->
     <ul>
         {% for vinyl in allvinyls %}
             {% include "hub/includes/vinyl.html" %}
@@ -48,5 +52,6 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{% static 'hub/colorchange.js' %}" defer></script>
+    <!-- Include JavaScript file for color change functionality -->
+    <script src="{% static 'hub/colorchange.js' %}" defer></script>
 {% endblock %}

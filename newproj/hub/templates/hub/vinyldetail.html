@@ -6,26 +6,37 @@
 {% endblock %}
 
 {% block stylesheets %}
+    <!-- Link to the stylesheet specific for vinyl details -->
     <link rel="stylesheet" href="{% static "hub/vinyldetail.css" %}">
 {% endblock %}
 
 {% block content %}
 <section id="summary">
     <div class="summary-content">
+        <!-- Display the vinyl cover image -->
         <img src="{{ vinyl.image.url }}" alt="Vinyl Cover" class="vinyl-cover">
         <div class="summary-details">
+            <!-- Display the vinyl title -->
             <h2>{{ vinyl.title }}</h2>
+            <!-- Display the vinyl tags -->
             <div class="tags">
                 {% for tag in vinyl.tags.all %}
                     <span class="tag">{{ tag.caption }}</span>
                 {% endfor %}
             </div>
+            <!-- Display the vinyl price -->
             <p><strong>Price:</strong> {{ vinyl.price }}$</p>
+            <!-- Display the artist name -->
             <p><strong>Artist:</strong> {{ vinyl.artist.name }}</p>
+            <!-- Display the vinyl genre -->
             <p><strong>Genre:</strong> {{ vinyl.genre }}</p>
-            <p><strong>Stock:</strong> {{ vinyl.stock}}</p>
+            <!-- Display the stock count -->
+            <p><strong>Stock:</strong> {{ vinyl.stock }}</p>
+            <!-- Display the release year -->
             <p><strong>Year:</strong> {{ vinyl.year }}</p>
+            <!-- Display the vinyl rating -->
             <p><strong>Rating:</strong> {{ vinyl.rating }}</p>
+            <!-- Conditional link to add the vinyl to the cart -->
             {% if user.is_authenticated %}
                 <a href="{% url 'add_to_cart' vinyl.id %}" class="btn-buy-now">Buy Now</a>
             {% else %}

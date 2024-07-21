@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test Review Form</title>
+    <title>Test Review Form</title> <!-- Page title -->
 </head>
 <body>
-    <h1>Test Review Form</h1>
+    <h1>Test Review Form</h1> <!-- Heading for the review form -->
     <form method="POST">
-        {% csrf_token %}
+        {% csrf_token %} <!-- CSRF token for security -->
         <div>
-            {{ review_form.rating.label_tag }} {{ review_form.rating }}
+            {{ review_form.rating.label_tag }} {{ review_form.rating }} <!-- Display rating label and input field -->
         </div>
         <div>
-            {{ review_form.comment.label_tag }} {{ review_form.comment }}
+            {{ review_form.comment.label_tag }} {{ review_form.comment }} <!-- Display comment label and input field -->
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Submit</button> <!-- Submit button for the form -->
     </form>
     {% if review_form.errors %}
         <div>
             <h3>Form Errors:</h3>
-            {{ review_form.errors }}
+            {{ review_form.errors }} <!-- Display form errors if any -->
         </div>
     {% endif %}
 </body>

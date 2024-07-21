@@ -1,19 +1,27 @@
 <article class="vinyl" data-dominant-color="{{ vinyl.dominantcolor }}">
+    <!-- Link to the vinyl item details page -->
     <a href="{% url 'item-details' vinyl.slug %}" class="vinyl-link">
+        <!-- Display the vinyl cover image -->
         <img src="{{ vinyl.image.url }}" alt="Vinyl record" class="vinyl-cover"/>
     </a>
     <div class="summary-content">
         <div class="summary-details">
+            <!-- Display the vinyl title -->
             <h3 class="vinyl-title">Title: {{ vinyl.title }}</h3>
+            <!-- Display the artist name -->
             <h2 class="vinyl-artist">Artist: {{ vinyl.artist }}</h2>
             <div class="tags">
                 <p>Tags:</p>
+                <!-- Loop through and display the tags associated with the vinyl -->
                 {% for tag in vinyl.tags.all %}
                     <span class="tag">{{ tag.caption }}</span>
                 {% endfor %}
             </div>
+            <!-- Display the vinyl price -->
             <p class="vinyl-price">Price: {{ vinyl.price }}$</p>
+            <!-- Display the vinyl genre -->
             <p class="vinyl-genre">Genre: {{ vinyl.genre }}</p>
+            <!-- Display the release year of the vinyl -->
             <p class="vinyl-year">Year: {{ vinyl.year }}</p>
         </div>
     </div>

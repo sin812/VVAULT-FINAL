@@ -6,15 +6,16 @@
 {% endblock %}
 
 {% block stylesheets %}
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS for styling -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 {% endblock %}
 
 {% block content %}
 <div class="container mt-5">
-    <h1>User Profile</h1>
+    <h1>User Profile</h1> <!-- Heading for the user profile page -->
     <div class="card mb-3">
         <div class="card-body">
+            <!-- Display user information -->
             <p><strong>Username:</strong> {{ user.username }}</p>
             <p><strong>First Name:</strong> {{ user.first_name }}</p>
             <p><strong>Last Name:</strong> {{ user.last_name }}</p>
@@ -22,8 +23,8 @@
         </div>
     </div>
 
-    <h2>Actions</h2>
-    <a href="{% url 'change_username' %}" class="btn btn-primary">Change Username</a>
+    <h2>Actions</h2> <!-- Heading for the actions section -->
+    <a href="{% url 'change_username' %}" class="btn btn-primary">Change Username</a> <!-- Link to change username -->
 </div>
 {% endblock %}
 

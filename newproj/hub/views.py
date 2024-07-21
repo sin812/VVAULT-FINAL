@@ -1,32 +1,25 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.shortcuts import render, redirect,get_object_or_404 #importing the render function from django.shortcuts and the get_object_or_404 function which will be used to get the object from the database and return a 404 error if the object is not found
-from .models import Vinyl, Artist, Cart, CartItem,Rating #importing the Vinyl and Artist models from the models.py file in the same directory
-from django.views.generic import ListView, DetailView
-from .forms import VinylForm, ArtistForm, TagForm, EditVinylForm, EditUserForm, UpdateUsernameForm, RateVinylForm, ContactForm #importing the VinylForm and ArtistForm classes from the forms.py file in the same directory
+from django.shortcuts import render, redirect, get_object_or_404  # Import necessary functions from django.shortcuts
+from .models import Vinyl, Artist, Cart, CartItem, Rating  # Import models from the current app's models.py
+from django.views.generic import ListView, DetailView  # Import class-based views
+from .forms import VinylForm, ArtistForm, TagForm, EditVinylForm, EditUserForm, UpdateUsernameForm, RateVinylForm, ContactForm  # Import forms from the current app's forms.py
 from django.contrib.auth.decorators import login_required
-from register.decorators import allowed_users
+from register.decorators import allowed_users  # Import custom decorators
 from django.core.mail import send_mail
 from django.conf import settings
-from .forms import ContactForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from statistics import median
 from django.urls import reverse
-from django.core.mail import send_mail
-from django.conf import settings
-
-
-
-
 
 def get_date(vinyl):
+    """Returns the date_added attribute of the vinyl."""
     return vinyl["date_added"]
-
-
 
 @login_required
 def user_profile_view(request):
+    """View for user profile."""
     user = request.user  # Get the current logged-in user
     if request.method == 'POST':
         form = UpdateUsernameForm(request.POST, instance=user)
@@ -43,36 +36,35 @@ def user_profile_view(request):
     }
     return render(request, 'profile.html', context)
 
-
-# Create your views here.
-
-
 class AllVinyls(ListView):
-    template_name = "hub/vinyls.html"    
+    """View for listing all vinyls."""
+    template_name = "hub/vinyls.html"
     model = Vinyl
     ordering = ["-price"]
     context_object_name = "allvinyls"
 
 class VinylListView(ListView):
+    """View for listing vinyls with a limit of 2."""
     template_name = "hub/index.html"
     model = Vinyl
     ordering = ["-price"]
     context_object_name = "vinyls"
 
     def get_queryset(self) -> QuerySet[Any]:
+        """Return the queryset limited to 2 items."""
         queryset = super().get_queryset()
-        data=queryset[:2]
+        data = queryset[:2]
         return data
 
-
 class SingleVinyl(DetailView):
+    """Detail view for a single vinyl."""
     template_name = "hub/vinyldetail.html"
     model = Vinyl
-    
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['PrivUser', 'admin'])
 def add_vinyl(request):
+    """View to add a new vinyl."""
     if request.method == 'POST':
         form = VinylForm(request.POST, request.FILES)
         if form.is_valid():
@@ -86,6 +78,7 @@ def add_vinyl(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['PrivUser', 'admin'])
 def add_artist(request):
+    """View to add a new artist."""
     if request.method == 'POST':
         form = ArtistForm(request.POST)
         if form.is_valid():
@@ -98,19 +91,20 @@ def add_artist(request):
 
 @login_required(login_url='login')
 def userpage(request):
+    """View for user profile page."""
     return render(request, 'hub/profile.html')
 
 @login_required(login_url='login')
 def contact_view(request):
+    """View for contact form."""
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Process the data in form.cleaned_data
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
             
-            # Send an email (for example)
+            # Send an email
             send_mail(
                 f"Message from {name}",
                 message,
@@ -118,17 +112,16 @@ def contact_view(request):
                 [settings.ADMIN_EMAIL],
                 fail_silently=False,
             )
-            
             return redirect('success')  # Redirect to a success page or display a success message
     else:
         form = ContactForm()
     
     return render(request, 'contact.html', {'form': form})
 
-
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['PrivUser', 'admin'])
 def add_tag(request):
+    """View to add a new tag."""
     if request.method == 'POST':
         form = TagForm(request.POST)
         if form.is_valid():
@@ -139,8 +132,8 @@ def add_tag(request):
     
     return render(request, 'hub/tagsform.html', {'form': form})
 
-
 def search_vinyls_title(request):
+    """Search vinyls by title."""
     query = request.GET.get('search_query_title', '')
     if query:
         filtered_vinyls = Vinyl.objects.filter(title__icontains=query)
@@ -155,6 +148,7 @@ def search_vinyls_title(request):
     return render(request, 'hub/vinyls.html', context)
 
 def search_vinyls_tag(request):
+    """Search vinyls by tag."""
     query = request.GET.get('search_query_tag', '')
     if query:
         filtered_vinyls = Vinyl.objects.filter(tags__caption__icontains=query).distinct()
@@ -168,12 +162,9 @@ def search_vinyls_tag(request):
     }
     return render(request, 'hub/vinyls.html', context)
 
-
-
-
-
 @login_required
 def change_username_view(request):
+    """View to change username."""
     user = request.user
 
     if request.method == 'POST':
@@ -193,6 +184,7 @@ def change_username_view(request):
 @login_required
 @allowed_users(allowed_roles=['admin'])  # Ensure only admins can access
 def manage_content(request):
+    """View to manage content for admins."""
     vinyls = Vinyl.objects.all()
     users = User.objects.all()
     return render(request, 'hub/manage_content.html', {'vinyls': vinyls, 'users': users})
@@ -200,6 +192,7 @@ def manage_content(request):
 @login_required
 @allowed_users(allowed_roles=['admin'])
 def delete_vinyl(request, pk):
+    """View to delete a vinyl."""
     vinyl = get_object_or_404(Vinyl, pk=pk)
     vinyl.delete()
     return redirect('manage_content')
@@ -207,6 +200,7 @@ def delete_vinyl(request, pk):
 @login_required
 @allowed_users(allowed_roles=['admin'])
 def delete_user(request, pk):
+    """View to delete a user."""
     user = get_object_or_404(User, pk=pk)
     user.delete()
     return redirect('manage_content')
@@ -214,6 +208,7 @@ def delete_user(request, pk):
 @login_required
 @allowed_users(allowed_roles=['admin'])
 def edit_vinyl(request, pk):
+    """View to edit a vinyl."""
     vinyl = get_object_or_404(Vinyl, pk=pk)
     if request.method == 'POST':
         form = EditVinylForm(request.POST, request.FILES, instance=vinyl)
@@ -224,10 +219,10 @@ def edit_vinyl(request, pk):
         form = EditVinylForm(instance=vinyl)
     return render(request, 'hub/editvinyl.html', {'form': form})
 
-
 @login_required
 @allowed_users(allowed_roles=['admin'])
 def edit_user(request, pk):
+    """View to edit a user."""
     user = get_object_or_404(User, pk=pk)
     if request.method == 'POST':
         form = EditUserForm(request.POST, instance=user)
@@ -239,11 +234,13 @@ def edit_user(request, pk):
     return render(request, 'hub/edituser.html', {'form': form})
 
 class AllVinyls(ListView):
+    """View for listing all vinyls with filtering options."""
     template_name = "hub/vinyls.html"
     model = Vinyl
     context_object_name = "allvinyls"
 
     def get_queryset(self) -> QuerySet[Any]:
+        """Return the filtered queryset based on URL parameters."""
         queryset = super().get_queryset()
         artist_id = self.request.GET.get('artist')
         genre = self.request.GET.get('genre')
@@ -262,6 +259,7 @@ class AllVinyls(ListView):
         return queryset
     
     def get_context_data(self, **kwargs):
+        """Add artists and genres to the context."""
         context = super().get_context_data(**kwargs)
         context['artists'] = Artist.objects.all()
         context['genres'] = Vinyl.objects.values_list('genre', flat=True).distinct()
@@ -269,6 +267,7 @@ class AllVinyls(ListView):
     
 @login_required
 def add_to_cart(request, vinyl_id):
+    """View to add a vinyl to the cart."""
     vinyl = get_object_or_404(Vinyl, id=vinyl_id)
     cart, created = Cart.objects.get_or_create(user=request.user)
     cart_item, created = CartItem.objects.get_or_create(cart=cart, vinyl=vinyl)
@@ -292,6 +291,7 @@ def add_to_cart(request, vinyl_id):
 
 @login_required
 def increase_quantity(request, item_id):
+    """View to increase the quantity of an item in the cart."""
     cart_item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
     if cart_item.quantity < cart_item.vinyl.stock:
         cart_item.quantity += 1
@@ -303,6 +303,7 @@ def increase_quantity(request, item_id):
 
 @login_required
 def decrease_quantity(request, item_id):
+    """View to decrease the quantity of an item in the cart."""
     cart_item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
     if cart_item.quantity > 1:
         cart_item.quantity -= 1
@@ -315,15 +316,15 @@ def decrease_quantity(request, item_id):
 
 @login_required
 def view_cart(request):
+    """View to display the user's cart."""
     cart = get_object_or_404(Cart, user=request.user)
     cart_items = cart.cartitem_set.all()
     total_price = sum(item.vinyl.price * item.quantity for item in cart_items)
     return render(request, 'hub/cart.html', {'cart': cart, 'cart_items': cart_items, 'total_price': total_price})
 
-
-
 @login_required
 def checkout(request):
+    """View to handle checkout process."""
     cart = get_object_or_404(Cart, user=request.user)
     cart_items = cart.cartitem_set.all()
     total_price = sum(item.vinyl.price * item.quantity for item in cart_items)
@@ -347,10 +348,9 @@ def checkout(request):
     
     return render(request, 'hub/checkout.html', {'cart_items': cart_items, 'total_price': total_price})
 
-
-
 @login_required
 def rate_vinyl(request, vinyl_id):
+    """View to rate a purchased vinyl."""
     vinyl = get_object_or_404(Vinyl, id=vinyl_id)
     
     if request.method == 'POST':
@@ -384,17 +384,17 @@ def rate_vinyl(request, vinyl_id):
     
     return render(request, 'hub/rate_vinyl.html', {'vinyl': vinyl, 'form': form})
 
-
 @login_required
 def remove_from_cart(request, item_id):
+    """View to remove an item from the cart."""
     cart_item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
     cart_item.delete()
     messages.success(request, f'Removed {cart_item.vinyl.title} from your cart.')
     return redirect(reverse('view_cart'))
 
-
 @login_required
 def contact_view(request):
+    """View for contact form submission."""
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
