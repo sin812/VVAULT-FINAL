@@ -1,2 +1,12 @@
-__pycache__
-staticfiles
+__pycache__/
+staticfiles/
+venv/
+env/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.env
+*.venv
+pip-log.txt
+pip-delete-this-directory.txt
